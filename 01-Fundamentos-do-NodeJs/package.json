@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev:1": "node --watch src/01-servidorNativo.js",
-    "dev:2": "node --watch src/02-rotas.js"
+    "dev:1": "node --watch src/01-servidor-nativo.js",
+    "dev:2": "node --watch src/02-rotas.js",
+    "dev:3": "node --watch src/03-fundamentos-de-streams.js"
   },
   "keywords": [],
   "author": "",
