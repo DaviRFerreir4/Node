@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch src/servidorNativo.js"
+    "dev:1": "node --watch src/01-servidorNativo.js",
+    "dev:2": "node --watch src/02-rotas.js"
   },
   "keywords": [],
   "author": "",
