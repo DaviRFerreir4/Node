@@ -4,14 +4,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev:1": "node --watch src/01-servidor-nativo.js",
-    "dev:2": "node --watch src/02-rotas.js",
-    "dev:3": "node --watch src/03-fundamentos-de-streams.js",
-    "dev:4": "node --watch src/04-streams-com-http.js",
-    "upload": "node src/04-fake-upload-to-http-stream.js",
-    "dev:5": "node --watch src/05-corpo-da-requisicao-em-json.js",
-    "dev:6": "node --watch src/06-buffer.js",
-    "dev:7": "node --watch src/07-middleware-de-json.js"
+    "dev": "node --watch src/server.js",
+    "dev:1": "node --watch src-estudos/01-servidor-nativo.js",
+    "dev:2": "node --watch src-estudos/02-rotas.js",
+    "dev:3": "node --watch src-estudos/03-fundamentos-de-streams.js",
+    "dev:4": "node --watch src-estudos/04-streams-com-http.js",
+    "upload": "node src-estudos/04-fake-upload-to-http-stream.js",
+    "dev:5": "node --watch src-estudos/05-corpo-da-requisicao-em-json.js",
+    "dev:6": "node --watch src-estudos/06-buffer.js",
+    "dev:7": "node --watch src-estudos/07-middleware-de-json.js"
   },
   "keywords": [],
   "author": "",
