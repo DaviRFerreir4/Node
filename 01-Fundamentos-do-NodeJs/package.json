@@ -10,7 +10,8 @@
     "dev:4": "node --watch src/04-streams-com-http.js",
     "upload": "node src/04-fake-upload-to-http-stream.js",
     "dev:5": "node --watch src/05-corpo-da-requisicao-em-json.js",
-    "dev:6": "node --watch src/06-buffer.js"
+    "dev:6": "node --watch src/06-buffer.js",
+    "dev:7": "node --watch src/07-middleware-de-json.js"
   },
   "keywords": [],
   "author": "",
