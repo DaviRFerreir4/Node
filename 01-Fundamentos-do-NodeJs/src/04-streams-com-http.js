@@ -11,10 +11,22 @@ class InvertNumberStream extends Transform {
   }
 }
 
-const server = createServer((req, res) => {
-  return req
-    .pipe(new InvertNumberStream())
-    .pipe(res)
+const server = createServer(async (req, res) => {
+  const buffers = []
+
+  for await (const chunck of req.pipe(new InvertNumberStream)) {
+    buffers.push(chunck)
+  }
+
+  const fullStreamContent = Buffer.concat(buffers).toString()
+
+  console.log(fullStreamContent)
+
+  return res.end(fullStreamContent)
+
+  // return req
+  //   .pipe(new InvertNumberStream())
+  //   .pipe(res)
 })
 
 server.listen(3334)
