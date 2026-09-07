@@ -6,11 +6,13 @@ export class Database {
   #database = {}
 
   constructor() {
-    fs.readFile(DATABASE_PATH, 'utf-8').then((data) => {
-      this.#database = JSON.parse(data)
-    }).catch(() => {
-      this.#persist()
-    })
+    fs.readFile(DATABASE_PATH, 'utf-8')
+      .then((data) => {
+        this.#database = JSON.parse(data)
+      })
+      .catch(() => {
+        this.#persist()
+      })
   }
 
   #persist() {
