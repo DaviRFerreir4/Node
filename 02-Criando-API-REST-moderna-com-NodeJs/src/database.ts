@@ -1,9 +1,10 @@
 import knexConfig from 'knex'
+import { env } from './env/index.ts'
 
 export const configs: knexConfig.Knex.Config = {
   client: 'better-sqlite3',
   connection: {
-    filename: './db/app.db',
+    filename: env.DATABASE_URL,
   },
   useNullAsDefault: true,
   migrations: {
