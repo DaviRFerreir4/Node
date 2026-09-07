@@ -31,4 +31,19 @@ export const routes = [
       return res.writeHead(201).end('Criando um usuário')
     },
   },
+  {
+    method: 'DELETE',
+    path: buildRoutePath('/users/:id'),
+    handler: (req, res) => {
+      const { id } = req.params
+
+      const result = database.delete('users', id)
+
+      if (!result) {
+        return res.writeHead(400).end('Usuário não encontrado')
+      }
+
+      return res.writeHead(204).end()
+    },
+  },
 ]
