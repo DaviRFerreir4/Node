@@ -10,7 +10,9 @@
     "dev": "tsx watch ./src/server.ts"
   },
   "dependencies": {
-    "fastify": "^5.12.3"
+    "better-sqlite3": "^13.0.3",
+    "fastify": "^5.12.3",
+    "knex": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^26.5.0",
