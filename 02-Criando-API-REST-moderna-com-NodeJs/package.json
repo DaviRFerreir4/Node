@@ -8,7 +8,8 @@
   "main": "",
   "scripts": {
     "dev": "tsx watch ./src/server.ts",
-    "knex": "tsx ./node_modules/knex/bin/cli"
+    "knex": "tsx ./node_modules/knex/bin/cli",
+    "test": "vitest"
   },
   "dependencies": {
     "@fastify/cookie": "^11.1.2",
@@ -20,7 +21,10 @@
   },
   "devDependencies": {
     "@types/node": "^26.5.0",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.2.2",
     "tsx": "^4.23.13",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
   }
 }
