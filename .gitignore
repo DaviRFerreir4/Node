@@ -1,4 +1,6 @@
 .env
+.env.test
 dist
 node_modules
 app.db
+test.db
