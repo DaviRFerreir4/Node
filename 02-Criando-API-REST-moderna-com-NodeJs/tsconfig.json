@@ -3,9 +3,9 @@
     // "rootDir": "./src",
     "outDir": "./dist",
 
-    "module": "nodenext",
     "target": "es2020",
-    "types": [],
+    "module": "es2020",
+    "esModuleInterop": true,
 
     "sourceMap": true,
     "declaration": true,
@@ -20,8 +20,10 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
+
     "skipLibCheck": true,
     "noEmit": true,
     "allowImportingTsExtensions": true
-  }
+  },
+  "include": ["src/**/*"]
 }
