@@ -8,7 +8,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
   const bodySchema = z.object({
     name: z.string(),
     email: z.email(),
-    password: z.string(),
+    password: z.string().min(8),
   })
 
   const { name, email, password } = bodySchema.parse(request.body)
@@ -23,7 +23,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
       return reply.status(409).send({ message: error.message })
     }
 
-    return reply.status(500).send()
+    throw error
   }
 
   return reply.status(201).send()
