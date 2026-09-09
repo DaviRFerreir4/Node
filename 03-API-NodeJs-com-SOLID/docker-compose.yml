@@ -1,0 +1,9 @@
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=admin
+      - POSTGRESQL_PASSWORD=drowssap
+      - POSTGRESQL_DATABASE=common
