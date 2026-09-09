@@ -32,8 +32,8 @@ model CheckIn {
   user_id String
   user    User   @relation(fields: [user_id], references: [id])
 
-  gymId String
-  gym   Gym    @relation(fields: [gymId], references: [id])
+  gym_id String
+  gym    Gym    @relation(fields: [gym_id], references: [id])
 
   created_at DateTime @default(now())
 
