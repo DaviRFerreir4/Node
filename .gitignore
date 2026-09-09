@@ -11,3 +11,6 @@ dist
 # Database
 app.db
 test.db
+
+# Tests
+coverage
