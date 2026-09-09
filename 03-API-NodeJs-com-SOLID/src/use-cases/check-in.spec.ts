@@ -96,4 +96,23 @@ describe('Check In Use Case', () => {
       })
     ).rejects.toBeInstanceOf(Error)
   })
+
+  it('should not be able to check in on a distant gym', async () => {
+    const gym = await gymsRepository.create({
+      name: 'Test Gym',
+      description: 'Test Gym Description',
+      phone: '5542940028922',
+      latitude: -21.6796219,
+      longitude: -46.6151591,
+    })
+
+    await expect(
+      sut.execute({
+        gymId: gym.id,
+        userId: 'user-01',
+        userLatitude: -22.6796219,
+        userLongitude: -47.6151591,
+      })
+    ).rejects.toBeInstanceOf(Error)
+  })
 })
