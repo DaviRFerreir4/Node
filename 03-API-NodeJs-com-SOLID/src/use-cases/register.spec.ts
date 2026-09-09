@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { RegisterUseCase } from './users.ts'
+import { RegisterUseCase } from './register.ts'
 import { compare } from 'bcryptjs'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository.ts'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error.ts'
