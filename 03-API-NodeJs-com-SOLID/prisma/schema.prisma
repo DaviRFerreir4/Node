@@ -13,10 +13,12 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-  name String
-  email String @unique
+  id            String @id @default(uuid())
+  name          String
+  email         String @unique
   password_hash String
+
+  checkIns CheckIn[]
 
   created_at DateTime @default(now())
 
@@ -24,8 +26,14 @@ model User {
 }
 
 model CheckIn {
-  id String @id @default(uuid())
+  id           String    @id @default(uuid())
   validated_at DateTime?
+
+  user_id String
+  user    User   @relation(fields: [user_id], references: [id])
+
+  gymId String
+  gym   Gym    @relation(fields: [gymId], references: [id])
 
   created_at DateTime @default(now())
 
@@ -33,12 +41,14 @@ model CheckIn {
 }
 
 model Gym {
-  id String @id @default(uuid())
-  name String
+  id          String  @id @default(uuid())
+  name        String
   description String?
-  phone String?
-  latitude Decimal
-  longitude Decimal
+  phone       String?
+  latitude    Decimal
+  longitude   Decimal
+
+  checkIns CheckIn[]
 
   @@map("gyms")
 }
