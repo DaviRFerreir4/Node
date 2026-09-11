@@ -33,6 +33,12 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     return checkInOnSameDate ?? null
   }
 
+  async countByUserId(userId: string) {
+    const checkInsCount = this.items.length
+
+    return checkInsCount
+  }
+
   async create(data: CheckInUncheckedCreateInput) {
     const checkIn: CheckInModel = {
       id: randomUUID(),
