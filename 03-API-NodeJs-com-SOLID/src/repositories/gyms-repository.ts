@@ -10,8 +10,8 @@ export interface FindManyNearbyParams {
 }
 
 export interface GymsRepository {
-  findById: (id: string) => Promise<GymModel | null>
   findManyNearby: (params: FindManyNearbyParams) => Promise<GymModel[]>
   searchMany: (query: string, page: number) => Promise<GymModel[]>
+  findById: (id: string) => Promise<GymModel | null>
   create: (data: GymUncheckedCreateInput) => Promise<GymModel>
 }

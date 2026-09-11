@@ -17,6 +17,12 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     return checkIns
   }
 
+  async findById(id: string) {
+    const gym = this.items.find((item) => item.id === id)
+
+    return gym ?? null
+  }
+
   async findByUserIdOnDate(userId: string, date: Date) {
     const startOfDay = dayjs(date).startOf('date')
     const endOfDay = dayjs(date).endOf('date')
@@ -49,6 +55,18 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     }
 
     this.items.push(checkIn)
+
+    return checkIn
+  }
+
+  async save(checkIn: CheckInModel) {
+    const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id)
+
+    if (checkInIndex < -1) {
+      return null
+    }
+
+    this.items[checkInIndex] = checkIn
 
     return checkIn
   }

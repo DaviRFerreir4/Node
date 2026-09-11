@@ -10,12 +10,6 @@ import { getDistanceBetweenCordinates } from '@/utils/get-distance-between-cordi
 export class InMemoryGymsRepository implements GymsRepository {
   public items: GymModel[] = []
 
-  async findById(id: string) {
-    const gym = this.items.find((item) => item.id === id)
-
-    return gym ?? null
-  }
-
   async findManyNearby(params: FindManyNearbyParams) {
     const gyms = this.items
       .filter((item) => {
@@ -40,6 +34,12 @@ export class InMemoryGymsRepository implements GymsRepository {
       .slice((page - 1) * 20, page * 20)
 
     return gyms
+  }
+
+  async findById(id: string) {
+    const gym = this.items.find((item) => item.id === id)
+
+    return gym ?? null
   }
 
   async create(data: GymCreateInput) {

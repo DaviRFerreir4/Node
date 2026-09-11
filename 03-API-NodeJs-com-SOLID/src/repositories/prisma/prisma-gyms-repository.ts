@@ -6,12 +6,6 @@ import type {
 import { prisma } from '@/lib/prisma.ts'
 
 export class PrismaGymsRepository implements GymsRepository {
-  async findById(id: string) {
-    const gym = prisma.gym.findFirst({ where: { id } })
-
-    return gym
-  }
-
   async findManyNearby(params: FindManyNearbyParams) {
     return []
   }
@@ -24,6 +18,12 @@ export class PrismaGymsRepository implements GymsRepository {
     })
 
     return gyms
+  }
+
+  async findById(id: string) {
+    const gym = prisma.gym.findFirst({ where: { id } })
+
+    return gym
   }
 
   async create(data: GymCreateInput) {
