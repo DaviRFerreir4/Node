@@ -18,7 +18,7 @@ function generateTestDatabaseUrl(schema: string) {
 
 export default <Environment>{
   name: 'prisma',
-  transformMode: 'ssr',
+  viteEnvironment: 'ssr',
   setup: async () => {
     const schema = randomUUID()
     const testDatabaseUrl = generateTestDatabaseUrl(schema)
@@ -33,7 +33,7 @@ export default <Environment>{
           `DROP SCHEMA IF EXISTS "${schema}" CASCADE`
         )
 
-        await prisma.$disconnect
+        await prisma.$disconnect()
       },
     }
   },

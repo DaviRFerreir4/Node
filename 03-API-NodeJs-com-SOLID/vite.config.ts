@@ -7,14 +7,14 @@ export default defineConfig({
     dir: 'src',
     projects: [
       {
-        plugins: [tsconfigPaths()],
+        extends: true,
         test: {
           name: 'unit',
           dir: 'src/use-cases',
         },
       },
       {
-        plugins: [tsconfigPaths()],
+        extends: true,
         test: {
           name: 'e2e',
           dir: 'src/http/controllers',
