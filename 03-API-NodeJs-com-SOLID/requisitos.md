@@ -5,13 +5,13 @@
 - [x] Deve ser possível se cadastrar
 - [x] Deve ser possível se autenticar
 - [x] Deve ser possível obter o perfil de um usuário logado
-- [] Deve ser possível obter o número de check-ins realizados pelo usuário logado
+- [x] Deve ser possível obter o número de check-ins realizados pelo usuário logado
 - [] Deve ser possível o usuário obter seu histórico de logins
-- [] Deve ser possível o usuário buscar academias próximas
-- [] Deve ser possível buscar academias pelo nome
+- [x] Deve ser possível o usuário buscar academias próximas (10 kms)
+- [x] Deve ser possível buscar academias pelo nome
 - [x] Deve ser possível o usuário realizar check-in numa academia
 - [] Deve ser possível validar o check-in do usuário
-- [] Deve ser possível cadastrar uma academia
+- [x] Deve ser possível cadastrar uma academia
 
 ## RN (Regras de negócio)
 
@@ -26,5 +26,5 @@
 
 - [x] a senha do usuário precisa estar criptografada
 - [x] os dados da aplicação devem estar persistidos num banco postgres
-- [] todas listas de dados precisa estar paginadas com 20 itens por página
+- [x] todas listas de dados precisa estar paginadas com 20 itens por página
 - [] o usuário deve ser identificado com um JWT

@@ -1,5 +1,8 @@
 import type { GymCreateInput } from '~/generated/prisma/models.ts'
-import type { GymsRepository } from '../gyms-repository.ts'
+import type {
+  FindManyNearbyParams,
+  GymsRepository,
+} from '../gyms-repository.ts'
 import { prisma } from '@/lib/prisma.ts'
 
 export class PrismaGymsRepository implements GymsRepository {
@@ -7,6 +10,10 @@ export class PrismaGymsRepository implements GymsRepository {
     const gym = prisma.gym.findFirst({ where: { id } })
 
     return gym
+  }
+
+  async findManyNearby(params: FindManyNearbyParams) {
+    return []
   }
 
   async searchMany(query: string, page: number) {

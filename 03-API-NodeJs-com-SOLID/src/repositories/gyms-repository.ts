@@ -3,8 +3,15 @@ import type {
   GymModel,
 } from '~/generated/prisma/models.ts'
 
+export interface FindManyNearbyParams {
+  latitude: number
+  longitude: number
+  page: number
+}
+
 export interface GymsRepository {
   findById: (id: string) => Promise<GymModel | null>
+  findManyNearby: (params: FindManyNearbyParams) => Promise<GymModel[]>
   searchMany: (query: string, page: number) => Promise<GymModel[]>
   create: (data: GymUncheckedCreateInput) => Promise<GymModel>
 }
