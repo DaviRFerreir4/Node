@@ -1,4 +1,4 @@
-import type { GymCreateInput } from '~/generated/prisma/models.ts'
+import type { GymCreateInput, GymModel } from '~/generated/prisma/models.ts'
 import type {
   FindManyNearbyParams,
   GymsRepository,
@@ -6,8 +6,13 @@ import type {
 import { prisma } from '@/lib/prisma.ts'
 
 export class PrismaGymsRepository implements GymsRepository {
-  async findManyNearby(params: FindManyNearbyParams) {
-    return []
+  async findManyNearby({ latitude, longitude }: FindManyNearbyParams) {
+    const gyms = await prisma.$queryRaw<GymModel[]>`
+      SELECT * FROM gyms
+      WHERE ( 6371 * acos( cos( radians(${latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(${longitude}) ) + sin( radians(${latitude}) ) * sin( radians( latitude ) ) ) ) <= 10
+    `
+
+    return gyms
   }
 
   async searchMany(query: string, page: number) {
@@ -21,7 +26,7 @@ export class PrismaGymsRepository implements GymsRepository {
   }
 
   async findById(id: string) {
-    const gym = prisma.gym.findFirst({ where: { id } })
+    const gym = prisma.gym.findUnique({ where: { id } })
 
     return gym
   }
