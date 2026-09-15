@@ -1,8 +1,13 @@
 import { env } from '@/env/index.ts'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '~/generated/prisma/client.ts'
+import { PrismaClient } from '~/prisma/generated/prisma/client.ts'
+
+export const schema =
+  new URL(env.DATABASE_URL).searchParams.get('schema') || 'public'
+
+const adapter = new PrismaPg({ connectionString: env.DATABASE_URL }, { schema })
 
 export const prisma = new PrismaClient({
-  adapter: new PrismaPg(env.DATABASE_URL),
+  adapter,
   log: env.NODE_ENV === 'development' ? ['query'] : [],
 })
