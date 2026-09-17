@@ -1,6 +1,6 @@
 import type { CheckInsRepository } from '@/repositories/check-ins-repository.ts'
 import type { GymsRepository } from '@/repositories/gyms-repository.ts'
-import type { CheckInModel } from '~/generated/prisma/models.ts'
+import type { CheckInModel } from '~/prisma/generated/prisma/models.ts'
 import { ResourceNotFoundError } from './errors/resource-not-found-error.ts'
 import { getDistanceBetweenCordinates } from '@/utils/get-distance-between-cordinates.ts'
 import { MaxDistanceError } from './errors/max-distance-error.ts'

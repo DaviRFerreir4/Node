@@ -1,7 +1,7 @@
 import type {
   GymUncheckedCreateInput,
   GymModel,
-} from '~/generated/prisma/models.ts'
+} from '~/prisma/generated/prisma/models.ts'
 
 export interface FindManyNearbyParams {
   latitude: number

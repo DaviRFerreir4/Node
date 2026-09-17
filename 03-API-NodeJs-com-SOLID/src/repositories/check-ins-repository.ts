@@ -1,7 +1,7 @@
 import type {
   CheckInUncheckedCreateInput,
   CheckInModel,
-} from '~/generated/prisma/models.ts'
+} from '~/prisma/generated/prisma/models.ts'
 
 export interface CheckInsRepository {
   findManyByUserId: (userId: string, page: number) => Promise<CheckInModel[]>

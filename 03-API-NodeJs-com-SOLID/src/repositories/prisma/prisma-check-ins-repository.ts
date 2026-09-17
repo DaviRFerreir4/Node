@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma.ts'
 import type {
   CheckInModel,
   CheckInUncheckedCreateInput,
-} from '~/generated/prisma/models.ts'
+} from '~/prisma/generated/prisma/models.ts'
 import type { CheckInsRepository } from '../check-ins-repository.ts'
 import dayjs from 'dayjs'
 

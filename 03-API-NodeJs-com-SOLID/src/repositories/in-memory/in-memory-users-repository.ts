@@ -1,4 +1,7 @@
-import type { UserCreateInput, UserModel } from '~/generated/prisma/models.ts'
+import type {
+  UserCreateInput,
+  UserModel,
+} from '~/prisma/generated/prisma/models.ts'
 import type { UsersRepository } from '../users-repository.ts'
 import { randomUUID } from 'node:crypto'
 

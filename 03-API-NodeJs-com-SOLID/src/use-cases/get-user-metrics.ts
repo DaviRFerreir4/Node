@@ -1,5 +1,5 @@
 import type { CheckInsRepository } from '@/repositories/check-ins-repository.ts'
-import type { CheckInModel } from '~/generated/prisma/models.ts'
+import type { CheckInModel } from '~/prisma/generated/prisma/models.ts'
 
 interface GetUserMetricsUseCaseRequest {
   userId: string

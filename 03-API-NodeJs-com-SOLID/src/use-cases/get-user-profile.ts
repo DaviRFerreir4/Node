@@ -1,5 +1,5 @@
 import type { UsersRepository } from '@/repositories/users-repository.ts'
-import type { UserModel } from '~/generated/prisma/models.ts'
+import type { UserModel } from '~/prisma/generated/prisma/models.ts'
 import { ResourceNotFoundError } from './errors/resource-not-found-error.ts'
 
 interface GetUserProfileUseCaseRequest {

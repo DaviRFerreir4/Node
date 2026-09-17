@@ -1,5 +1,5 @@
 import type { GymsRepository } from '@/repositories/gyms-repository.ts'
-import type { GymModel } from '~/generated/prisma/models.ts'
+import type { GymModel } from '~/prisma/generated/prisma/models.ts'
 
 interface FetchNearbyGymsUseCaseRequest {
   userLatitude: number

@@ -1,7 +1,7 @@
 import type {
   CheckInUncheckedCreateInput,
   CheckInModel,
-} from '~/generated/prisma/models.ts'
+} from '~/prisma/generated/prisma/models.ts'
 import type { CheckInsRepository } from '../check-ins-repository.ts'
 import { randomUUID } from 'node:crypto'
 import dayjs from 'dayjs'

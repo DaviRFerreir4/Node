@@ -1,4 +1,7 @@
-import type { GymCreateInput, GymModel } from '~/generated/prisma/models.ts'
+import type {
+  GymCreateInput,
+  GymModel,
+} from '~/prisma/generated/prisma/models.ts'
 import type {
   FindManyNearbyParams,
   GymsRepository,
