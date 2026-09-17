@@ -16,6 +16,7 @@ export default defineConfig({
       {
         extends: true,
         test: {
+          maxWorkers: 1,
           name: 'e2e',
           dir: 'src/http/controllers',
           environment:
