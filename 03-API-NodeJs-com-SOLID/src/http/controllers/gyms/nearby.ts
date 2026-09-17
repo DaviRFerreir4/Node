@@ -19,5 +19,5 @@ export async function nearby(request: FastifyRequest, reply: FastifyReply) {
     page,
   })
 
-  return reply.status(200).send(gyms)
+  return reply.status(200).send({ gyms })
 }
