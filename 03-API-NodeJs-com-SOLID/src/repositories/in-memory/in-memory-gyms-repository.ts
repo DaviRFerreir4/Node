@@ -31,10 +31,12 @@ export class InMemoryGymsRepository implements GymsRepository {
     return gyms
   }
 
-  async searchMany(query: string, page: number) {
-    const gyms = this.items
-      .filter((item) => item.name.includes(query))
-      .slice((page - 1) * 20, page * 20)
+  async searchMany(query?: string, page: number = 1) {
+    const gyms = query
+      ? this.items
+          .filter((item) => item.name.includes(query))
+          .slice((page - 1) * 20, page * 20)
+      : this.items
 
     return gyms
   }

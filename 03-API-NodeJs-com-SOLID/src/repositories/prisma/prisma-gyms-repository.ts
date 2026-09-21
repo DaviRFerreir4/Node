@@ -6,22 +6,24 @@ import type {
   FindManyNearbyParams,
   GymsRepository,
 } from '../gyms-repository.ts'
-import { prisma } from '@/lib/prisma.ts'
+import { prisma, schema } from '@/lib/prisma.ts'
+import { Prisma } from '~/prisma/generated/prisma/client.ts'
 
 export class PrismaGymsRepository implements GymsRepository {
-  async findManyNearby({ latitude, longitude }: FindManyNearbyParams) {
+  async findManyNearby({ latitude, longitude, page }: FindManyNearbyParams) {
     const gyms = await prisma.$queryRaw<GymModel[]>`
-      SELECT * FROM gyms
+      SELECT * FROM ${Prisma.raw(`"${schema}"."gyms"`)}
       WHERE ( 6371 * acos( cos( radians(${latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(${longitude}) ) + sin( radians(${latitude}) ) * sin( radians( latitude ) ) ) ) <= 10
+      LIMIT ${20} OFFSET ${(page - 1) * 20};
     `
 
     return gyms
   }
 
-  async searchMany(query: string, page: number) {
+  async searchMany(query?: string, page: number = 1) {
     const gyms = await prisma.gym.findMany({
-      where: { name: { contains: query } },
-      skip: page - 1,
+      ...(query ? { where: { name: { contains: query.trim() } } } : {}),
+      skip: (page - 1) * 20,
       take: 20,
     })
 

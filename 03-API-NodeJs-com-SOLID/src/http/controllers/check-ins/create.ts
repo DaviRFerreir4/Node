@@ -12,7 +12,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     gymId: z.uuid(),
   })
 
-  const { latitude, longitude } = bodySchema.parse(request.query)
+  const { latitude, longitude } = bodySchema.parse(request.body)
   const { gymId } = paramsSchema.parse(request.params)
   const userId = request.user.sub
 

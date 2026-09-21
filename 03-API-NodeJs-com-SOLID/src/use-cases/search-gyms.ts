@@ -2,7 +2,7 @@ import type { GymsRepository } from '@/repositories/gyms-repository.ts'
 import type { GymModel } from '~/prisma/generated/prisma/models.ts'
 
 interface SearchGymsUseCaseRequest {
-  query: string
+  query: string | undefined
   page: number
 }
 
