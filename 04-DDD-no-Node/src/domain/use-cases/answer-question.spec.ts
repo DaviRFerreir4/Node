@@ -5,7 +5,7 @@ describe('create an answer', async () => {
   const answerQuestionUseCase = new AnswerQuestionUseCase()
   it('should create a question', async () => {
     const answer = await answerQuestionUseCase.execute({
-      intructorId: '1',
+      instructorId: '1',
       questionId: '1',
       content: 'Test Answer',
     })
