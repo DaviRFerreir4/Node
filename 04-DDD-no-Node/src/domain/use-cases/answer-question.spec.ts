@@ -2,7 +2,7 @@ import type { AnswersRepository } from '../repositories/answers-repository.ts'
 import { AnswerQuestionUseCase } from './answer-question.js'
 import { describe, expect, it } from 'vitest'
 
-describe('create an answer', async () => {
+describe('Answer Question', async () => {
   const fakeAnswersRepository: AnswersRepository = {
     create: async (answer) => {},
   }
