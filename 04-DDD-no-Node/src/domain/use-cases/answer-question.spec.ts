@@ -4,10 +4,12 @@ import { describe, expect, it } from 'vitest'
 
 describe('Answer Question', async () => {
   const fakeAnswersRepository: AnswersRepository = {
-    create: async (answer) => {},
+    create: async (answer) => {
+      console.log(answer)
+    },
   }
-
   const answerQuestionUseCase = new AnswerQuestionUseCase(fakeAnswersRepository)
+
   it('should create a question', async () => {
     const answer = await answerQuestionUseCase.execute({
       instructorId: '1',

@@ -14,7 +14,9 @@ export class AnswerQuestionUseCase {
     questionId,
     content,
   }: AnswerQuestionUseCaseRequest) {
-    const answer = new Answer({ content, authorId: instructorId, questionId })
+    const answer = new Answer({
+      props: { content, authorId: instructorId, questionId },
+    })
 
     await this.answersRepository.create(answer)
 
